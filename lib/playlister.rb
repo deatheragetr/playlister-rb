@@ -14,7 +14,7 @@ class Artist
     @@artists
   end
 
-  def intialize 
+  def initialize 
     @@artists << self
   end
 end
