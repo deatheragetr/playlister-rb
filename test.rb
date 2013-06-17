@@ -1,3 +1,5 @@
+require './lib/playlister.rb'
+
 def test(title, &b)
   begin
     if b
