@@ -23,25 +23,54 @@ class Artist
     songs.size
   end
 
-  def add_song (song)
+  def add_song(song)
     songs << song
+    add_artist_to_genre(song) if song.genre
+   end 
+
+  def add_artist_to_genre(song)
+    genre = song.genre 
+    genre.artists << self unless genre.artists.include? self
+  end
 
   def genres
    songs.collect {|song| song.genre}
   end
-
-  end
-  
-  
-
 end
 
 
 class Song
-attr_accessor :genre
-end
+  attr_reader :genre
+  def genre=(genre)
+    genre.songs << self
+    @genre = genre
+  end
+
+end 
 
 class Genre
-attr_accessor :name
+  attr_accessor :name, :songs, :artists
 
+  @@genres = []
+
+  def self.reset_genres
+    @@genres = []
+  end 
+  def self.all
+    @@genres
+  end  
+
+  def initialize
+    @@genres << self
+    self.songs = []
+    self.artists = []
+  end
 end
+
+# x = Artist.new
+# song = Song.new
+# x.add_song song
+# genre = Genre.new
+# genre.name = "rap"
+# song.genre = genre
+# puts x.genres
