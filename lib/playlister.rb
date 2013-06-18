@@ -42,6 +42,7 @@ end
 class Song
   attr_accessor :name
   attr_reader :genre, :artist
+
   def genre=(genre)
     genre.songs << self
     @genre = genre
