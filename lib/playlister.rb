@@ -40,12 +40,15 @@ end
 
 
 class Song
-  attr_reader :genre
+  attr_accessor :name
+  attr_reader :genre, :artist
   def genre=(genre)
     genre.songs << self
     @genre = genre
   end
-
+  def artist=(artist)
+    @artist = artist 
+  end
 end 
 
 class Genre
@@ -67,10 +70,4 @@ class Genre
   end
 end
 
-# x = Artist.new
-# song = Song.new
-# x.add_song song
-# genre = Genre.new
-# genre.name = "rap"
-# song.genre = genre
-# puts x.genres
+

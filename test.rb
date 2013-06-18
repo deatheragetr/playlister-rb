@@ -172,10 +172,27 @@ end
 # without your song class having this functionality, so go ahead and try
 # to use assert and assert_equal to write some tests.
 
-test 'Can initialize a song'
-test 'A song can have a name'
-test 'A song can have a genre'
-test 'A song has an artist'
+test 'Can initialize a song' do
+  assert Song.new
+end
+test 'A song can have a name' do
+  song = Song.new
+  song.name = "Gangsta's Paradise"
+  assert song.name
+end
+test 'A song can have a genre' do
+  song = Song.new
+  genre = Genre.new
+  genre.name = "Light Rock"
+  song.genre = genre
+  assert_equal song.genre, genre
+end
+test 'A song has an artist' do
+  song = Song.new
+  artist = Artist.new
+  song.artist = artist
+  assert_equal song.artist, artist
+end
 
 # Part 2: Site Generation Using ERB
 # write a ruby script that parses the data within the data directory
