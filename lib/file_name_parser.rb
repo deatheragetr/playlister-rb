@@ -1,4 +1,5 @@
 require './playlister.rb'
+require 'ap'
 
 songs_folder = Dir['../data/*']
 
@@ -15,6 +16,8 @@ def add_artist(artist_name)
   unless Artist.all.any? {|artist| artist.name == artist_name}
     artist = Artist.new 
     artist.name = artist_name
+  else
+    artist = Artist.all.select {|artist| artist.name == artist_name}[0]
   end
   artist
 end
@@ -30,8 +33,8 @@ def add_genre(genre_name)
 end
 
 def songs_artist(song, artist)
-  artist.add_song(song) 
   song.artist = artist
+  song.artist.add_song(song)
 end
 
 def add_song(song_name, genre, artist)
@@ -48,7 +51,22 @@ def collect_data(songs_folder)
   end
 end
 
-collect_data
+collect_data songs_folder
+
+####A Few Simple Tests #####
+
+# puts Artist.all.first.songs.first.name
+
+Artist.all.each do |artist|
+  ap "#{artist.name}'s Songs:"
+  artist.songs.each do |song|
+    print ">>>" + song.name + ', '
+  end
+  puts ''
+end
+
+
+
 
 
 
