@@ -1,4 +1,8 @@
+require_relative 'findbyname.rb'
+
 class Artist
+  extend FindByName
+
   attr_accessor :name, :songs
   @@artists = []
 
@@ -40,8 +44,18 @@ end
 
 
 class Song
+  extend FindByName
+
   attr_accessor :name
   attr_reader :genre, :artist
+  @@all = []
+  def self.all
+    @@all
+  end
+
+  def initialize
+    @@all << self
+  end 
 
   def genre=(genre)
     genre.songs << self
@@ -53,6 +67,8 @@ class Song
 end 
 
 class Genre
+  extend FindByName
+
   attr_accessor :name, :songs, :artists
 
   @@genres = []
@@ -70,5 +86,4 @@ class Genre
     self.artists = []
   end
 end
-
 

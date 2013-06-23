@@ -56,15 +56,7 @@ collect_data songs_folder
 ####A Few Simple Tests #####
 
 # puts Artist.all.first.songs.first.name
-
-Artist.all.each do |artist|
-  ap "#{artist.name}'s Songs:"
-  artist.songs.each do |song|
-    print ">>>" + song.name + ', '
-  end
-  puts ''
-end
-
+Genre.all
 
 
 
