@@ -16,3 +16,11 @@ Artist.all.each do |artist|
     f.write(artist_template.result(artist.get_binding))
   end
 end
+
+song_template = ERB.new(File.read('./views/songs.erb'))
+
+Song.all.each do |song|
+  File.open("./songs/#{song.name}.html", "w+") do |f|
+    f.write(song_template.result(song.get_binding))
+  end
+end
