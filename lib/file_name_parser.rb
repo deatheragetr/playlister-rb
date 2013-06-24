@@ -1,7 +1,9 @@
-require './playlister.rb'
+require_relative './models/playlister.rb'
 require 'ap'
+require 'debugger'
 
-songs_folder = Dir['../data/*']
+
+songs_folder = Dir['./data/*']
 
 def data_builder(song_path)
   artist_name = song_path.split('/').last.split('-').first.strip
@@ -53,10 +55,10 @@ end
 
 collect_data songs_folder
 
+
 ####A Few Simple Tests #####
 
 # puts Artist.all.first.songs.first.name
-Genre.all
 
 
 

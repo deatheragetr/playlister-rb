@@ -1,0 +1,5 @@
+<ol>
+  <% Artist.all.each do |artist| %>
+  <li><a href="./artists/<%= artist.name %>.html"><%= artist.name %>:</a> <%= artist.songs_count %> songs </li>
+  <% end %>
+</ol>

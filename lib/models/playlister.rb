@@ -1,4 +1,4 @@
-require_relative 'findbyname.rb'
+require_relative '../concerns/findbyname.rb'
 
 class Artist
   extend FindByName
@@ -18,10 +18,15 @@ class Artist
     @@artists
   end
 
+  def self.get_binding
+    binding() 
+  end
+
   def initialize 
     @@artists << self
     self.songs = []
   end
+
 
   def songs_count
     songs.size
@@ -39,6 +44,10 @@ class Artist
 
   def genres
    songs.collect {|song| song.genre}
+  end
+
+  def get_binding
+    binding()
   end
 end
 
@@ -64,6 +73,9 @@ class Song
   def artist=(artist)
     @artist = artist 
   end
+  def get_binding
+    binding()
+  end
 end 
 
 class Genre
@@ -84,6 +96,10 @@ class Genre
     @@genres << self
     self.songs = []
     self.artists = []
+  end
+
+  def get_binding
+    binding()
   end
 end
 

@@ -1,4 +1,4 @@
-require './file_name_parser.rb'
+require_relative './file_name_parser.rb'
 require 'ap'
 
 GenreNames = Genre.all.map {|genre| genre.name.downcase}
