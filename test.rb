@@ -1,4 +1,4 @@
-require './lib/playlister.rb'
+require './lib/file_name_parser.rb'
 
 def test(title, &b)
   begin
