@@ -1,6 +1,10 @@
+<h1>Index of <em>les Artists</em></h1>
+
 <ol>
-  <% Artist.all.each do |artist| %>
-  <li><a href="./artists/<%= artist.name %>.html">
-    <%= artist.name %>:</a> <%= artist.songs_count %> songs </li>
+  <% @artists.each do |artist| %>
+  <li><a href="/artists/<%= artist.name.downcase.split.join('_') %>/sexy_html_high_five">
+    <%= artist.name %>:</a> <%= artist.songs_count %> songs 
+    [<%= artist.genre.name %>] </li>
+    <hr/>
   <% end %>
 </ol>

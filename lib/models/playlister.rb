@@ -2,7 +2,7 @@ require_relative '../concerns/findbyname.rb'
 
 class Artist
   extend FindByName
-
+  attr_reader :genre
   attr_accessor :name, :songs
   @@artists = []
 
@@ -40,6 +40,7 @@ class Artist
   def add_artist_to_genre(song)
     genre = song.genre 
     genre.artists << self unless genre.artists.include? self
+    @genre = genre 
   end
 
   def genres

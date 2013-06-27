@@ -1,0 +1,5 @@
+<% require 'youtube_it' %>
+<% client = YouTubeIt::Client.new %>
+
+<% video = client.videos_by(:query => "penguin").videos[0] %>
+<%= video.embed_html_with_width(1280) %>
