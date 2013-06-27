@@ -1,5 +1,5 @@
 <h1>Index of <em>les Artists</em></h1>
-
+<a href="/artists/new"><button>Add Another Artist</button></a>
 <ol>
   <% @artists.each do |artist| %>
   <li><a href="/artists/<%= artist.name.downcase.split.join('_') %>/sexy_html_high_five">

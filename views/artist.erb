@@ -1,9 +1,10 @@
 <h3><%= @artist.name %></h3>
 <ol>
   <% @artist.songs.each do |song| %>
-  <li><a href="#"><%= song.name %></a>
+  <li><a href="/artists/songs/<%= song.name.downcase.split.join('_')%>"><%= song.name %></a>
   <%= song.genre.name %>
   </li>
   <% end %>
 </ol>
+<a href="/artist/add_song/<%= @artist.name.downcase.split.join('_') %>"><button>Add Song</button></a>
 <a href="/"><h4>Home</h4></a> 

@@ -1,5 +1,11 @@
+<h1>
+  <%= @song.name %> <em>by</em> <%= @song.artist.name %>
+</h1>
+
+<h4><a href="/">Return Home?</a></h4>  
+
 <% require 'youtube_it' %>
 <% client = YouTubeIt::Client.new %>
 
-<% video = client.videos_by(:query => "penguin").videos[0] %>
+<% video = client.videos_by(:query => "#{@song.name}  #{@song.artist.name}").videos[0] %>
 <%= video.embed_html_with_width(1280) %>
